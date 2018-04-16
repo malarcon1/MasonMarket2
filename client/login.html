@@ -1,0 +1,117 @@
+<template name="login">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MockUp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+
+</head>
+
+<body>
+    <div>
+
+ <div id="top-alert" class="alert alert-danger" role="alert" style="display:none;">
+    <strong>Invalid Login</strong> - You may not have signed up for an account or your password may be incorrect!
+</div>
+
+<div class="alert alert-success" id="passwordsNoMatchRegister" role="alert" style="display:none;"><p>Failed to log in!</p></div>
+        <div class="header-dark" style="background-color:#EFEBE9;height:144px;">
+            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+                <div class="container"><a class="navbar-brand" href="index.html" style="color:#00695C;font-size:24px;">Mason Market</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div
+                        class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="search.html" style="color:#008975;">Advanced Search</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:#008975;">Menu&nbsp;</a>
+                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">About</a><a class="dropdown-item" role="presentation" href="#">GMU</a><a class="dropdown-item" role="presentation" href="#">Help</a></div>
+                            </li>
+                        </ul>
+                        <form class="form-inline mr-auto" target="_self">
+                            <div class="form-group" style="margin-left:10px;"><label for="search-field"><i class="fa fa-search" style="color:#008975;"></i></label><input class="form-control search-field" type="search" name="search" id="search-field" style="color:rgb(80,94,108);"></div>
+                        </form>
+                        {{#if currentUser}}
+                            <span class="navbar-text"><a href="login.html" class="login" style="color:#00695C;">        {{firstName}}</a>
+                            </span>                        
+
+                            <a class="btn btn-light action-button logout" role="button" href="login" style="background-color:#00695C;"> Log Out
+                            </a>
+                        {{else}}
+                            <span class="navbar-text">
+                            <a href="login.html" class="login" style="color:#00695C;">        
+                                Log In
+                            </a>
+                            </span>
+                            <a class="btn btn-light action-button" role="button" href="createaccount" style="background-color:#00695C;"> Sign Up
+                            </a>
+                        {{/if}}
+                    </div>
+
+        </div>
+        </nav>
+        <div class="container hero">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h1 class="text-center" style="color:#00695C;">Welcome to the Market!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="register-photo" style="background-color:#EFEBE9;margin-top:-31px;">
+        <div class="form-container">
+            <div class="image-holder" style="background-image:url(&quot;loginpic.jpg&quot;);"></div>
+            <form class = "login" method="post" style="background-color:#ffffff;">
+                <h2 class="text-center" style="color:rgb(146,128,153);font-weight:bold;height:51px;">&nbsp;<i class="icon ion-ios-locked-outline" style="width:-7px;font-size:53px;margin-top:0px;color:rgb(0,105,92);"></i></h2>
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" pattern=".+@masonlive.gmu.edu" title= "Please provide a valid MasonLive email address (@masonlive.gmu.edu)" required></div>
+                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" required></div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit" style="background-color:#00695C;">      Log in!</button>
+                </div>
+                <a href="createaccount" class="already">Don't have an account? Create one here.</a></form>
+        </div>
+    </div>
+    <div class="footer-dark" style="background-color:#008975;">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Mason Market</h3>
+                        <p>A place for students to connect, buy and sell their used textbooks for great prices.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">Mason Market © 2018</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+
+</body>
+	<!---	<h1>Login</h1> -->
+</template>
