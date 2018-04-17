@@ -1,3 +1,6 @@
+//Router.route('/', function () {
+  //this.redirect('/login');
+//});
 
         
 Router.route('/createaccount', function () {
@@ -12,13 +15,18 @@ Router.route('/listing', function () {
   this.render('listing');
 });
 
+Router.route('/listing/:_id', function () {
+	this.render('listing');
+//console.log(Router.current().params._id);
+});
+
 Router.route('/createlisting', function () {
   if (Meteor.userId() && this.ready())
   {
 	this.render('createlisting');
   }
   else
-	  Router.go('/home');
+	  Router.go('home');
   
 });
 
@@ -29,10 +37,10 @@ Router.route('/myaccount', function () {
 Router.route('/search', function () {
   this.render('search');
 });
-
+/*
 Router.route('/home', function () {
   this.render('home');
-});
+});*/
 
 Router.route('/', function () {
     this.render('home');
@@ -42,7 +50,6 @@ Router.route('/', function () {
 Router.route('/:page?', {
     name: 'home',
     path: '/:page?',
-
 
 });
 

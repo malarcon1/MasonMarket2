@@ -39,7 +39,7 @@ Template.createlisting.events({
 		var course = $('[name=course]').val();
 		var imagesrc = $('[name=pic]').val();
 		var description = $('[name=description]').val();
-		var owner = Meteor.user();
+		var owner = Meteor.user().emails[0].address;
 		var createdAt = new Date();
 		
 				
@@ -48,4 +48,6 @@ Template.createlisting.events({
 		//insert into book collection
 		Books.insert(listing);
 	}
+	
 });
+

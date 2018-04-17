@@ -20,11 +20,14 @@ Template.login.events({
 // 	$('#passwordsNoMatchRegister').delay(3000).fadeOut();
         $('#top-alert').fadeIn();
         $('#top-alert').delay(5000).fadeOut();
+
 });
-	if(Meteor.user()){
-		document.location.reload(true);
-	
+
+	if(Meteor.userId() && this.ready()){
+		//document.location.reload(true);
+	   Router.redirect('home');
 	}
+
     }
 });
 
