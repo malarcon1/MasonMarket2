@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Promise } from 'meteor/promise';
 
-
+// random comment
 //Resolutions = new Mongo.Collection('resolutions');
 
 Meteor.startup(() => {
