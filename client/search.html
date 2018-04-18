@@ -106,6 +106,27 @@
     <script src="assets/js/script.min.js"></script>
 </body>
 
+    <div class="page-header clearfix">
+        <h4 class="pull-left">Books</h4>
+        <div class="pull-right">
+            <input type="text" name="search" class="form-control" width="250px" placeholder="Find a book...">
+        </div>
+    </div>
+
+    <ul class="list-group">
+        {{#if searching}}
+            {{> loading}}
+        {{else}}
+            {{#each books}}
+                <li class="list-group-item clearfix">
+                    <span class="pull-left">{{title}} by <strong>{{price}}</strong></span>
+                    <span class="pull-right">{{description}}</span>
+                </li>
+            {{else}}
+                <p class="alert alert-warning">Nothing found for {{query}}. Sorry, bub.</p>
+            {{/each}}
+        {{/if}}
+    </ul>
 
 
 
