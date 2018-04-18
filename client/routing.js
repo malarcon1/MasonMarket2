@@ -15,7 +15,7 @@ Router.route('/listing', function () {
   this.render('listing');
 });
 
-Router.route('/listing/:_id', function () {
+Router.route('/listing/:id', function () {
 	this.render('listing');
 //console.log(Router.current().params._id);
 });
