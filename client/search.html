@@ -27,7 +27,22 @@
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group" style="margin-left:10px;"><label for="search-field"><i class="fa fa-search" style="color:#008975;"></i></label><input class="form-control search-field" type="search" name="search" id="search-field" style="color:rgb(80,94,108);"></div>
-                </form><span class="navbar-text"><a href="login.html" class="login" style="color:#00695C;padding-right:5px;">Log In</a></span><a class="btn btn-light action-button" role="button" href="createaccount.html" style="background-color:#00695C;">Sign Up</a></div>
+                </form>{{#if currentUser}}
+                <span class="navbar-text"><a href="myaccount" class="login" style="color:#00695C;">        {{firstName}}</a>
+                            </span>
+
+                <a class="btn btn-light action-button logout" role="button" href="login" style="background-color:#00695C;"> Log Out
+                </a>
+            {{else}}
+                <span class="navbar-text">
+                            <a href="login" class="login" style="color:#00695C;">
+                                Log In
+                            </a>
+                            </span>
+                <a class="btn btn-light action-button" role="button" href="createaccount" style="background-color:#00695C;"> Sign Up
+                </a>
+            {{/if}}
+            </div>
         </div>
     </nav>
     <div class="row float-none justify-content-center align-content-center align-self-center" style="margin-bottom:33px;background-color:#EFEBE9;width:auto;height:380px;">
