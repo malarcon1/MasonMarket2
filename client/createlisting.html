@@ -14,18 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
     <link rel="stylesheet" href="assets/css/styles.min.css">
-	
-	<script>
-		function check_price(){
-			var price = document.getElementById("priceCheck").value;
-			if (price < 0 || price > 5000)
-			{
-				alert("Price out of range! Please give valid price.");
 		
-			}
-	
-		}
-	</script>	
 	
 </head>
 
@@ -45,7 +34,7 @@
                 </form>
 				
 				{{#if currentUser}}
-					<span class="navbar-text"><a href="login" class="login" style="color:#00695C;">        {{firstName}}</a>
+					<span class="navbar-text"><a href="myaccount" class="login" style="color:#00695C;">        {{firstName}}</a>
                             </span>                        
 
                   	<a class="btn btn-light action-button" role="button" href="home" style="background-color:#00695C;">Log Out</a>
@@ -68,10 +57,10 @@
 			<input class="form-control" type="text" name="listname" placeholder="Listing Title" required>
 			<input class="form-control" type="number" name="price" placeholder="Price" id="priceCheck" style="margin-top:15px;" required>
 			<label style="margin-top:15px;">Condition:&nbsp;</label>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" name="condition"><label class="form-check-label" for="formCheck-1">Excellent</label></div>
-				<div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" name="condition"><label class="form-check-label" for="formCheck-1">Good</label></div>
-				<div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" name="condition"><label class="form-check-label" for="formCheck-1">Acceptable</label></div>
-				<div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" name="condition"><label class="form-check-label" for="formCheck-1">Worn-out</label></div>
+                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" name="condition" value="Excellent" ><label class="form-check-label" for="formCheck-1">Excellent</label></div>
+				<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" name="condition" value="Good"><label class="form-check-label" for="formCheck-1">Good</label></div>
+				<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" name="condition" value="Acceptable"><label class="form-check-label" for="formCheck-1">Acceptable</label></div>
+				<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" name="condition" value="Worn-out"><label class="form-check-label" for="formCheck-1">Worn-out</label></div>
 			<input class="form-control" type="text" name="course" placeholder="Class" style="margin-top:15px;" required></div>
 			<div class="fileinput fileinput-new" data-provides="fileinput">
 				<span class="btn btn-default btn-file"><span class="fileinput-new">Select file image</span>
@@ -80,8 +69,8 @@
 				<span class="fileinput-filename"></span>
 				<a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
 			</div>
-			<div class="form-group"><textarea class="form-control" rows="14" name="Description" placeholder="Description"></textarea></div>
-			<button class="btn btn-secondary" type="submit" style="background-color:#00BFA5;" href="login">Create!</button>
+			<div class="form-group"><textarea class="form-control" rows="14" name="description" placeholder="Description"></textarea></div>
+			<button class="btn btn-secondary" type="submit" style="background-color:#00BFA5;">Create!</button>
 		</form>
 		
 		<!--{{/if}}-->
@@ -124,5 +113,5 @@
 
 
 
-	<h1>CreateListing</h1>
+	<!--<h1>CreateListing</h1>-->
 </template>
