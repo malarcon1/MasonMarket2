@@ -34,20 +34,25 @@
         <div class="container">
             <div class="row" style="margin-bottom:33px;background-color:#EFEBE9;">
                 <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2" style="background-color:#ffffff;border-radius:25px;margin-top:20px;margin-bottom:20px;">
+                    {{#each books}}
                     <div class="intro">
-                        <h1 class="text-center" style="color:#008975;">Listing Name</h1>
-                        <p class="text-center"><span class="by">Posted by</span> <a href="#">Author Name</a><span class="date">Sept 8th, 2016 </span></p><img class="img-fluid" src="assets/img/desk.jpg" style="background-size:contain;"></div>
+                        <h1 class="text-center" style="color:#008975;">{{title}}</h1>
+                        <p class="text-center"><span class="by">Posted by</span> <a href="#">{{owner}}</a><span class="date">{{createdAt}} </span></p><img class="img-fluid" src="assets/img/desk.jpg" style="background-size:contain;"></div>
                     <div class="text">
                         <h2>Description</h2>
                         <p>Sed lobortis mi. Suspendisse vel placerat ligula. <span style="text-decoration: underline;">Vivamus</span> ac sem lac. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in
                             justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-                        <p>-Price: //blah blah</p>
-                        <p>-Condition: //blah blah</p>
-                        <p>-: //blah blah</p>
-                        
-                    </div><button class="btn btn-primary buy-button" type="button" style="background-color:#00BFA5;margin-left:0px;margin-bottom:20px;">Buy Now</button></div>
-                    
+                        <p>Class: {{course}}</p>
+                        <p>Price: {{price}} Dollars</p>
+                        <p>Condition: {{condition}}</p>
+                        <p>: //blah blah</p>
+
+                    </div>
+                    {{/each}}
+                    <button class="btn btn-primary buy-button" type="button" style="background-color:#00BFA5;margin-left:0px;margin-bottom:20px;">Buy Now</button>
+                </div>
             </div>
+
         </div>
     </div>
     <div class="footer-dark" style="background-color:#008975;">
