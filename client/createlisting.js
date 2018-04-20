@@ -43,48 +43,39 @@ Template.createlisting.events({
 		let createdAt = new Date();
 
 		let files = $("input.file_bag")[0].files;
-		let imagesrc = null;
+		let imagesrc = "";
 
 
         S3.upload({
             files:files,
             path:"books"
         },function(e,r){
-            if(e) console.error('Could not upload the file!');
-            else{
-            	imagesrc = r.url;
 
-                if (price < 0 || price > 5000)
-                {
-                    alert("Price out of range! Please give valid price from 0 to 5000");
-                    return;
-                }
-
-                if (condition === undefined)
-                {
-                    alert("Please choose a condition for the book!");
-                    return;
-                }
-                if (!imagesrc){
-                    alert("Could not upload the book image. Please try again. ");
-                    return;
-                }
-                else
-                {
-
-                    console.log("User created listing");
-
-                    let listing = new BookContract(title, price, description, imagesrc, owner, condition, course);
-
-                    //insert into book collection
-                    Books.insert(listing);
-
-                    console.log(listing);
-
-                    Router.go('home');
-
-                }
+        	if(e) console.error('Could not upload an image.');
+			else{
+				imagesrc = r.url;
 			}
+
+            if (price < 0 || price > 5000)
+            {
+                alert("Price out of range! Please give valid price from 0 to 5000");
+                return;
+            }
+
+            else if (condition === undefined)
+            {
+                alert("Please choose a condition for the book!");
+                return;
+            }
+            else
+            {
+                console.log("User created listing");
+                let listing = new BookContract(title, price, description, imagesrc, owner, condition, course);
+                //insert into book collection
+                Books.insert(listing);
+                console.log(listing);
+                Router.go('home');
+            }
         });
 
 
