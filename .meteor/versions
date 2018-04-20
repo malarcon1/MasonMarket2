@@ -51,6 +51,7 @@ jquery@1.11.11
 kurounin:pagination@1.0.25
 kurounin:pagination-blaze@1.0.5
 launch-screen@1.1.1
+lepozepo:s3@5.2.8
 livedata@1.0.18
 localstorage@1.2.0
 logging@1.1.20

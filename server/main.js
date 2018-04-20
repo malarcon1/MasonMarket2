@@ -9,8 +9,17 @@ Meteor.startup(() => {
 
 //      process.env.MAIL_URL = "smtp://postmaster@sandboxa49634e118e44b50bccf99a45000d56b.mailgun.org:725f48281cab4e9ec7130b8913aa0822-21e977f8-cbb3af54@smtp.mailgun.org:587";
 
-
 });
+
+S3.config = { // This is the S3 bucket key that stores our files
+    key: 'AKIAJGDXVIORKFBSDPRQ',
+    secret: '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',
+    bucket: 'masonmarket',
+    region: 'us-east-1'
+};
+
+
+
 Meteor.methods({
 registerUser: function(email, number, password){
 	 console.log(email);
