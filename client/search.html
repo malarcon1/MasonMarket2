@@ -27,7 +27,22 @@
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group" style="margin-left:10px;"><label for="search-field"><i class="fa fa-search" style="color:#008975;"></i></label><input class="form-control search-field" type="search" name="search" style="color:rgb(80,94,108);"></div>
-                </form><span class="navbar-text"><a href="login" class="login" style="color:#00695C;padding-right:5px;">Log In</a></span><a class="btn btn-light action-button" role="button" href="createaccount" style="background-color:#00695C;">Sign Up</a></div>
+                </form>
+				
+				{{#if currentUser}}
+					<span class="navbar-text"><a href="myaccount" class="login" style="color:#00695C;">        {{firstName}}</a>
+                            </span>                        
+
+                  	<a class="btn btn-light action-button" role="button" href="home" style="background-color:#00695C;">Log Out</a>
+				{{else}}
+				
+					<span class="navbar-text"><a href="login" class="login" style="color:#00695C;margin-right:5px;">Log In</a></span>
+					<a class="btn btn-light action-button" role="button" href="createaccount" style="background-color:#00695C;">Sign Up</a>
+				
+	  
+				{{/if}}
+				
+			</div>
         </div>
     </nav>
     <div class="row float-none justify-content-center align-content-center align-self-center" style="margin-bottom:33px;background-color:#EFEBE9;width:auto;height:380px;">
@@ -75,6 +90,7 @@
     <div></div>
     <div></div>
     <div></div>
+	<!--{{#if books}}-->
 	    <div class="page-header clearfix">
         <h1 class="text-center" style="color:#008975;font-family:bitter, serif;">Book Results</h1>
 		
@@ -83,9 +99,7 @@
 		</div>
     </div>
 	    <ul class="list-group" style = "margin:20px" >
-        {{#if searching}}
-            {{> loading}}
-        {{else}}
+        
             {{#each books}}
                 <li class="list-group-item clearfix">
                     <span class="pull-left"><h4><u>{{title}}</u></h4><strong> Condition:</strong> {{condition}}</span>
@@ -98,8 +112,9 @@
 
                 </li>
 			{{/each}}
-        {{/if}}
+ 
     </ul>
+	<!--{{/if}}-->
     <div class="testimonials-clean"></div>
     <div class="footer-dark" style="background-color:#008975;">
         <footer>
