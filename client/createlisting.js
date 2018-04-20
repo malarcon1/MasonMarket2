@@ -39,7 +39,7 @@ Template.createlisting.events({
 		let course = $('[name=course]').val();
 		// let imagesrc = $('[name=pic]').val();
 		let description = $('[name=description]').val();
-		let owner = Meteor.user();
+		let owner = Meteor.user().emails[0].address;
 		let createdAt = new Date();
 
 		let files = $("input.file_bag")[0].files;
