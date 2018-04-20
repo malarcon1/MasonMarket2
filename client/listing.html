@@ -14,45 +14,54 @@
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
-    <body style="background-color: #EFEBE9">
+<body>
     <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="background-color:#EFEBE9;">
         <div class="container"><a class="navbar-brand" href="/home" style="color:#00695C;font-size:24px;">Mason Market</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/search" style="color:#008975;">Advanced Search</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:#008975;">Advanced Search</a></li>
                     <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:#008975;">Menu</a>
                         <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">About</a><a class="dropdown-item" role="presentation" href="#">GMU</a><a class="dropdown-item" role="presentation" href="#">Help</a></div>
                     </li>
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group" style="margin-left:10px;"><label for="search-field"><i class="fa fa-search" style="color:#008975;"></i></label><input class="form-control search-field" type="search" name="search" id="search-field" style="color:rgb(80,94,108);"></div>
-                </form><span class="navbar-text"><a href="myaccount.html" class="login" style="color:#00695C;margin-right:5px;">My Account</a></span><a class="btn btn-light action-button" role="button" href="#" style="background-color:#00695C;">Log Out</a></div>
+                </form><span class="navbar-text"><a href="/mylistings" class="login" style="color:#00695C;margin-right:5px;">My Account</a></span><a class="btn btn-light action-button" role="button" href="#" style="background-color:#00695C;">Log Out</a></div>
         </div>
     </nav>
+
     <div class="article-clean" style="background-color:#EFEBE9;">
+        <div class="div3" >
+            <h1 class="text-center" style="color:#008975;">Send An Email To Seller</h1>
+                <div class="form-group">
+                        <textarea style="resize:none" id = "emailDescription" name ="emaildescription" rows="15" cols="50"></textarea>
+                    <button class="btn btn-primary buy-button" type="button" style="background-color:#00BFA5;margin-left:0px;margin-bottom:30px;">Send Email</button>
+                </div>
+        </div>
         <div class="container">
             <div class="row" style="margin-bottom:33px;background-color:#EFEBE9;">
                 <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2" style="background-color:#ffffff;border-radius:25px;margin-top:20px;margin-bottom:20px;">
-
+                    {{#each books}}
                     <div class="intro">
                         <h1 class="text-center" style="color:#008975;">{{title}}</h1>
                         <p class="text-center"><span class="by">Posted by</span> <a href="#">{{owner}}</a><span class="date">{{createdAt}} </span></p><img class="img-fluid" src="assets/img/desk.jpg" style="background-size:contain;"></div>
                     <div class="text">
                         <h2>Description</h2>
-                        <p>{{description}}</p>
+                        <textarea readonly style="border :none" name ="description" rows="5" cols="90">{{description}}</textarea>
                         <p>Class: {{course}}</p>
                         <p>Price: {{price}} Dollars</p>
                         <p>Condition: {{condition}}</p>
                         <p>: //blah blah</p>
-
                     </div>
-                    <button class="btn btn-primary buy-button" type="button" style="background-color:#00BFA5;margin-left:0px;margin-bottom:20px;">Inquire</button>
+                    {{/each}}
+
+                    <button class="btn btn-primary buy-button" type="button" style="background-color:#00BFA5;margin-left:0px;margin-bottom:20px;">Buy Now</button>
                 </div>
             </div>
-
         </div>
     </div>
+
     <div class="footer-dark" style="background-color:#008975;">
         <footer>
             <div class="container">
@@ -91,5 +100,5 @@
 
 
 
-	<!--	<h1>Listing</h1> -->
+		<h1>Listing</h1>
 </template>
