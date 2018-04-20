@@ -26,7 +26,8 @@ Template.home.helpers({
         //     owner="user@masonlive.gmu.edu",
         //     condition="new");
         // Books.insert(myBook);
-        return Books.find();
+        //return Books.find();
+        Books.find();
     },
     prevPage: function() {
         var previousPage = currentPage() === 1 ? 1 : currentPage() - 1;
