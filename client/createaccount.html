@@ -13,20 +13,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
-
-<body>
-     <div id="top-alert" class="alert alert-danger" role="alert" style="display:none;">
+    <body style="background-color: #EFEBE9">
+    <div id="top-alert" class="alert alert-danger" role="alert" style="display:none;">
         <strong>Error Creating Account</strong> - Account already exists!
     </div>
      <div id="top-alert2" class="alert alert-success" role="alert" style="display:none;">
         <strong>Error Creating Account</strong> - Account already exists!
     </div>    
     <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="background-color:#EFEBE9;">
-        <div class="container"><a class="navbar-brand" href="index.html" style="color:#00695C;font-size:24px;">Mason Market</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="home" style="color:#00695C;font-size:24px;">Mason Market</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="search.html" style="color:#008975;">Advanced Search</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="search" style="color:#008975;">Advanced Search</a></li>
                     <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:#008975;">Menu&nbsp;</a>
                         <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">About</a><a class="dropdown-item" role="presentation" href="#">GMU</a><a class="dropdown-item" role="presentation" href="#">Help</a></div>
                     </li>
@@ -34,8 +33,25 @@
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group" style="margin-left:10px;"><label for="search-field"><i class="fa fa-search" style="color:#008975;"></i></label><input class="form-control search-field" type="search" name="search" id="search-field" style="color:rgb(80,94,108);"></div>
                 </form>
-                <span class="navbar-text"><a href="login" class="login" style="color:#00695C;margin-right:5px;">Log In</a></span><a class="btn btn-light action-button" role="button" href="createaccount.html" style="
-				-color:#00695C;">Sign Up</a></div>
+                {{#if currentUser}}
+                    <script>
+                        Router.go('home');
+                    </script>
+                    <span class="navbar-text"><a href="login" class="login" style="color:#00695C;">{{firstName}}</a>
+                            </span>
+
+                    <a class="btn btn-light action-button logout" role="button" href="login" style="background-color:#00695C;"> Log Out
+                    </a>
+                {{else}}
+                    <span class="navbar-text">
+                            <a href="login" class="login" style="color:#00695C;">
+                                Log In
+                            </a>
+                            </span>
+                    <a class="btn btn-light action-button" role="button" href="createaccount" style="background-color:#00695C;"> Sign Up
+                    </a>
+                {{/if}}
+                </div>
         </div>
     </nav>
     <div class="register-photo" style="background-color:#EFEBE9;">
@@ -51,7 +67,7 @@
                   <input id="wb" type="checkbox" />
                   <label for="wb" id="somelabel" >I Agree To The Terms of Service</label>
                 </div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color:#008975;">Sign Up</button></div><a href="login" class="already">You already have an account? Login here.</a>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color:#00695c;">Sign Up</button></div><a href="login" class="already">You already have an account? Login here.</a>
             </form>
         </div>
     </div>
