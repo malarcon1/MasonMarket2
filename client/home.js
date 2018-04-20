@@ -9,6 +9,7 @@ Template.home.onCreated(function() {
 
     this.subscribe('books', skipCount);
 });
+//hiiiiiii
 
 Template.home.helpers({
     firstName: function () {
