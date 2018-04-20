@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
-<body>
+    <body style="background-color: #EFEBE9">
      <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="background-color:#EFEBE9;">
         <div class="container"><a class="navbar-brand" href="home" style="color:#00695C;font-size:24px;">Mason Market</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
@@ -82,7 +82,7 @@
 
 		</div>
     </div>
-	    <ul class="list-group">
+	    <ul class="list-group" style = "margin:20px" >
         {{#if searching}}
             {{> loading}}
         {{else}}
@@ -95,8 +95,7 @@
 					<br>
                     <span><em>{{description}}</em></span>
 					<span class="pull-right"><a href ='/listing/{{_id}}' button class="btn btn-primary" style="background-color:#00BFA5;">View Details</a></span>
-					
-					
+
                 </li>
 			{{/each}}
         {{/if}}
