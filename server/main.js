@@ -1,23 +1,24 @@
 import { Meteor } from 'meteor/meteor';
 import { Promise } from 'meteor/promise';
 
+const fs = require('fs');
 
 //Resolutions = new Mongo.Collection('resolutions');
 
 Meteor.startup(() => {
 
-
 //      process.env.MAIL_URL = "smtp://postmaster@sandboxa49634e118e44b50bccf99a45000d56b.mailgun.org:725f48281cab4e9ec7130b8913aa0822-21e977f8-cbb3af54@smtp.mailgun.org:587";
 
 });
 
+let keyfile = JSON.parse(fs.readFileSync('/Users/maryama/Documents/rootkey.json', 'utf8'));
+
 S3.config = { // This is the S3 bucket key that stores our files
-    key: 'ask for this',
-    secret: 'ask for this',
+    key: keyfile.AWSAccessKeyId,
+    secret: keyfile.AWSSecretKey,
     bucket: 'masonmarket',
     region: 'us-east-1'
 };
-
 
 
 Meteor.methods({
