@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
-<body style="background-color: #EFEBE9">
+<body>
      <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="background-color:#EFEBE9;">
         <div class="container"><a class="navbar-brand" href="home" style="color:#00695C;font-size:24px;">Mason Market</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
@@ -26,7 +26,7 @@
                     </li>
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
-                    <div class="form-group" style="margin-left:10px;"><label for="search-field"><i class="fa fa-search" style="color:#008975;"></i></label><input class="form-control search-field" type="search" name="search" id="search-field" style="color:rgb(80,94,108);"></div>
+                    <div class="form-group" style="margin-left:10px;"><label for="search-field"><i class="fa fa-search" style="color:#008975;"></i></label><input class="form-control search-field" type="search" name="search" style="color:rgb(80,94,108);"></div>
                 </form><span class="navbar-text"><a href="login" class="login" style="color:#00695C;padding-right:5px;">Log In</a></span><a class="btn btn-light action-button" role="button" href="createaccount" style="background-color:#00695C;">Sign Up</a></div>
         </div>
     </nav>
@@ -52,12 +52,17 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6" style="width:500px;">
-                                    <form class="search-form" style="width:491px;margin-left:0px;padding-right:0;">
+                                    <form id="search" class="search-form" style="width:491px;margin-left:0px;padding-right:0;">
                                         <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text" style="color:rgb(255,255,255);background-color:#008975;"><i class="fa fa-search"></i></span></div><input class="form-control" type="text" placeholder="I am looking for..">
-                                            <div
-                                                class="input-group-append"><button class="btn btn-light" type="button" style="background-color:#008975;color:rgb(255,255,255);">Search </button></div>
-                                </div>
+                                            <div class="input-group-prepend">
+												<span class="input-group-text" style="color:rgb(255,255,255);background-color:#008975;"><i class="fa fa-search"></i></span>
+											</div>
+											
+												<input class="form-control" id="searchVal" type="text" placeholder="I am looking for..">
+												<div class="input-group-append">
+													<button class="btn btn-light" type="submit" style="background-color:#008975;color:rgb(255,255,255);">Search </button>
+												</div>
+									</div>
                                 </form><label>A more specific way to search for the books you need.</label></div>
                         </div>
                     </div>
@@ -70,6 +75,38 @@
     <div></div>
     <div></div>
     <div></div>
+	    <div class="page-header clearfix">
+        <h1 class="text-center" style="color:#008975;font-family:bitter, serif;">Book Results</h1>
+		
+        <div class="pull-right">
+		<!--<form id="search">
+            <input type="text" id="searchVal" name="search" class="form-control" width="250px" placeholder="Find a book...">
+			<button class="btn btn-light" type="submit" style="background-color:#008975;color:rgb(255,255,255);">Search </button>
+        </form>-->
+		</div>
+    </div>
+	    <ul class="list-group">
+        <!--{{#if searching}}
+            {{> loading}}
+        {{else}}-->
+            {{#each books}}
+                <li class="list-group-item clearfix">
+                    <span class="pull-left"><h4><u>{{title}}</u></h4><strong> Condition:</strong> {{condition}}</span>
+					<br>
+					<span class="pull-right"><strong> ${{price}}</strong></span>
+					<br>
+					<br>
+                    <span><em>{{description}}</em></span>
+					<span class="pull-right"><a href ='/listing/{{_id}}' button class="btn btn-primary" style="background-color:#00BFA5;">View Details</a></span>
+					
+					
+                </li>
+			{{/each}}
+            <!---{{else}}
+                <p class="alert alert-warning">Nothing found for {{query}}. Sorry, bub.</p>
+            {{/each}}
+        {{/if}}-->
+    </ul>
     <div class="testimonials-clean"></div>
     <div class="footer-dark" style="background-color:#008975;">
         <footer>
@@ -106,27 +143,9 @@
     <script src="assets/js/script.min.js"></script>
 </body>
 
-    <div class="page-header clearfix">
-        <h4 class="pull-left">Books</h4>
-        <div class="pull-right">
-            <input type="text" name="search" class="form-control" width="250px" placeholder="Find a book...">
-        </div>
-    </div>
 
-    <ul class="list-group">
-        {{#if searching}}
-            {{> loading}}
-        {{else}}
-            {{#each books}}
-                <li class="list-group-item clearfix">
-                    <span class="pull-left">{{title}} by <strong>{{price}}</strong></span>
-                    <span class="pull-right">{{description}}</span>
-                </li>
-            {{else}}
-                <p class="alert alert-warning">Nothing found for {{query}}. Sorry, bub.</p>
-            {{/each}}
-        {{/if}}
-    </ul>
+
+
 
 
 

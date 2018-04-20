@@ -1,15 +1,41 @@
+//This file goes in your Client folder
+
 import {Template} from 'meteor/templating';
 import './login.html';
 import { Books } from '../lib/collections.js';
 import {BookContract} from "../contracts/book_contract.js";
 
-Template.search.events({
-    'click .logout': function (event) {
-        event.preventDefault();
-        console.log("Test");
-        Meteor.logout();
-    },
-    'keyup [name="search"]' ( event, template ) {
+if (Meteor.isClient){
+	Template.search.helpers({
+		books: function(){
+			Meteor.subscribe("search", Session.get("searchVal"));
+		
+			//if (Session.get("searchVal")) {
+				return Books.find({}); //searchVal
+			}
+	});	
+	
+	Template.search.events({
+		'click .logout': function (event) {
+			event.preventDefault();
+			console.log("Test");
+			Meteor.logout();
+		},
+		
+		'submit #search': function(event){
+			event.preventDefault();
+			Session.set("searchVal", $("#searchVal").val());
+			
+			var searchtitle = $('[id=searchVal]').val();
+			console.log(searchtitle);
+			
+		}
+	});
+}
+
+
+
+/*    'keyup [name="search"]' ( event, template ) {
         let value = event.target.value.trim();
 
         if ( value !== '' && event.keyCode === 13 ) {
@@ -54,4 +80,4 @@ Template.search.helpers({
             return books;
         }
     }
-});
+});*/
