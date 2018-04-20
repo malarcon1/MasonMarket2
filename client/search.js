@@ -9,7 +9,7 @@ if (Meteor.isClient){
 	Template.search.helpers({
 		books: function(){
 			Meteor.subscribe("search", Session.get("searchVal"));
-		
+		4
 			//if (Session.get("searchVal")) {
 				return Books.find({}); //searchVal
 			}
