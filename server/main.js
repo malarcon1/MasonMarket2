@@ -12,8 +12,8 @@ Meteor.startup(() => {
 });
 
 S3.config = { // This is the S3 bucket key that stores our files
-    key: 'AKIAJGDXVIORKFBSDPRQ',
-    secret: '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',
+    key: 'ask for this',
+    secret: 'ask for this',
     bucket: 'masonmarket',
     region: 'us-east-1'
 };
