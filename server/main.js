@@ -7,11 +7,11 @@ const fs = require('fs');
 
 Meteor.startup(() => {
 
-//      process.env.MAIL_URL = "smtp://postmaster@sandboxa49634e118e44b50bccf99a45000d56b.mailgun.org:725f48281cab4e9ec7130b8913aa0822-21e977f8-cbb3af54@smtp.mailgun.org:587";
+
 
 });
 
-let keyfile = JSON.parse(fs.readFileSync('/Users/cmrbanu/Desktop/rootkey.json', 'utf8'));
+let keyfile = JSON.parse(fs.readFileSync('/Users/Hamza/Desktop/rootkey.json', 'utf8'));
 
 S3.config = { // This is the S3 bucket key that stores our files
     key: keyfile.AWSAccessKeyId,
@@ -32,19 +32,47 @@ registerUser: function(email, number, password){
 }
 });
 
-Meteor.methods({ // sends email via gmail
-    'createPlayer': function(){
-process.env.MAIL_URL="smtps://masonmarket123%40gmail.com:GMU123456@smtp.gmail.com:465/";
+Meteor.methods({
+  sendVerification(to, from, subject, text) {
+    console.log(to);
+    smtp = {
+    username: 'masonmarket123@gmail.com',
+    password: 'GMU123456',
+    server: 'smtp.gmail.com',
+    port: 587
+  }
+    process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
 
- Accounts.config({
-             sendVerificationEmail:true
-         });
- 
-Email.send({
-  from: "meteor.email.2014@gmail.com",
-  to: "naghma123@hotmail.com",
-  subject: "Meteor Can Send Emails via Gmail",
-  text: "Its pretty easy to send emails via gmail."
+    // Make sure that all arguments are strings.
+
+
+    // Let other method calls from the same client start running, without
+    // waiting for the email sending to complete.
+    this.unblock();
+
+    Email.send({ to, from, subject, text });
+  }
 });
-    }
+
+
+Meteor.methods({
+  sendEmail(to, from, subject, text) {
+    console.log(to);
+    smtp = {
+    username: 'masonmarket123@gmail.com',
+    password: 'GMU123456',
+    server: 'smtp.gmail.com',
+    port: 587
+  }
+    process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
+
+    // Make sure that all arguments are strings.
+
+
+    // Let other method calls from the same client start running, without
+    // waiting for the email sending to complete.
+    this.unblock();
+
+    Email.send({ to, from, subject, text });
+  }
 });
