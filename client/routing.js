@@ -38,9 +38,7 @@ Router.route('/search', function () {
   this.render('search');
 });
 
-Router.route('/searchpage', function () {
-  this.render('searchpage');
-});
+
 
 /*
 Router.route('/home', function () {
