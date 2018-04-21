@@ -15,9 +15,9 @@ if (Meteor.isServer){
 	
 	
 	Meteor.publish("search", function(searchVal){
-	/*if (!searchVal){
-		return Books.find({});
-	}*/
+	if (!searchVal){
+		return "";
+	}
 	
 	console.log("Search item", searchVal);
 	
