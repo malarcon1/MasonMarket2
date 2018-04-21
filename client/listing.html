@@ -45,10 +45,10 @@
                     {{#each books}}
                     <div class="intro">
                         <h1 class="text-center" style="color:#008975;">{{title}}</h1>
-                        <p class="text-center"><span class="by">Posted by</span> <a href="#">{{owner}}</a><span class="date">{{createdAt}} </span></p><img class="img-fluid" src="assets/img/desk.jpg" style="background-size:contain;"></div>
+                        <p class="text-center"><span class="by">Posted by</span> <a href="#">{{owner}}</a><span class="date">{{createdAt}} </span></p><img class="img-thumbnail img-fluid card-img-top w-100 d-block" style="height:400px;background-image:url({{imagesrc}});background-size:cover;"></div>
                     <div class="text">
                         <h2>Description</h2>
-                        <textarea readonly style="border :none" name ="description" rows="5" cols="90">{{description}}</textarea>
+                        <textarea readonly style="border:none;resize:none" name ="description" rows="5" cols="90">{{description}}</textarea>
                         <p>Class: {{course}}</p>
                         <p>Price: {{price}} Dollars</p>
                         <p>Condition: {{condition}}</p>
@@ -56,7 +56,7 @@
                     </div>
                     {{/each}}
 
-                    <button class="btn btn-primary buy-button" type="button" style="background-color:#00BFA5;margin-left:0px;margin-bottom:20px;">Buy Now</button>
+                 <!--   <button class="btn btn-primary buy-button" type="button" style="background-color:#00BFA5;margin-left:0px;margin-bottom:20px;">Buy Now</button> -->
                 </div>
             </div>
         </div>

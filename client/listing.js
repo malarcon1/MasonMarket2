@@ -1,32 +1,16 @@
-import { Meteor } from 'meteor/meteor';
+import {Template} from 'meteor/templating';
 import './login.html';
-import { Template } from 'meteor/templating';
-import './createlisting.html';
-
-import {BookContract} from "../contracts/book_contract.js";
 import { Books } from '../lib/collections.js';
-
+import {BookContract} from "../contracts/book_contract.js";
 Template.listing.onCreated(function() {
 
+console.log(Router.current().params._id);
+console.log(Books.find({_id: Router.current().params._id}));
     this.subscribe('books');
 });
-
-
-
-Template.listing.events({
-    'click .buy-button': function (event) {
-        event.preventDefault();
-
-        var id = Router.current().params.id; // get ID
-        var collection = Books.findOne({_id: id}); // query with ID
-        console.log(collection);
-
-    }
-});
-
+//hiiiiiii
 
 Template.listing.helpers({
-
     books: function(){
 
         // this is how to create and insert a new book
@@ -38,9 +22,22 @@ Template.listing.helpers({
         //     owner="user@masonlive.gmu.edu",
         //     condition="new");
         // Books.insert(myBook);
-        var id = Router.current().params.id; // get ID
-        var collection = Books.find({_id: id}); // query with ID
-        return collection;
+        console.log(Router.current().params._id);
+        return Books.find({_id: Router.current().params._id});
     }
-
 });
+
+
+
+
+Template.listing.events({
+    'click .logout': function (event) {
+        event.preventDefault();
+        console.log("Test");
+        Meteor.logout();
+    }
+});
+
+
+
+
