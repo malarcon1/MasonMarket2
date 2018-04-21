@@ -26,6 +26,13 @@ Template.createaccount.events({
 });
         Meteor.setTime(function(){
         if(!(bool)){
+ Meteor.call(
+  'sendVerification',
+  email,
+  'masonmarket123@gmail.com',
+  'Welcome To The Market!',
+  'This email to let you know that your account has been verified and you may now log in. Welcome To The Market!'
+);           
         	console.log("Here");
          $('#top-alert2').fadeIn();
         $('#top-alert2').delay(5000).fadeOut(); 

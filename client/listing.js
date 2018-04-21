@@ -39,5 +39,36 @@ Template.listing.events({
 });
 
 
+function displayDate()
+{
+//    console.log(Books.find({_id: Router.current().params._id},{"title":1}));
+//    console.log(document.getElementsByClassName('xyz-title')[0].children[0].href);
+//console.log(document.getElementsByClassName('xyz-title')[0].getElementsByTagName('a')[0].innerHTML);
+//console.log(document.getElementsByTagName('a')[0].href);
+var User = Meteor.user().emails[0].address;
+var Owner = document.getElementById('bookowner').innerHTML;
+var contents = document.getElementById("emailDescription").value;
 
+Meteor.call(
+  'sendEmail',
+  Owner,
+  User,
+  'MasonMarket - Item Inquiry From ' + User,
+  'Message From Potential Buyer:\n\n\t' + contents + '\n\n\n\n\n\n\n\nPlease do not reply to this email, you will not get a reply back.\n\n- Mason Market Team'
+);
+         $('#top-alert2').fadeIn();
+        $('#top-alert2').delay(5000).fadeOut(); 
+console.log(document.getElementById("emailDescription").value);
+document.getElementById('emailDescription').value = "";
+  //  document.getElementById("demo").innerHTML=Date();
+}
 
+window.onload = function() {
+    var btn = document.getElementById("myButton");
+
+    btn.onclick = displayDate;
+}
+
+function gotowebpage (){
+    //do stuff with value
+}
