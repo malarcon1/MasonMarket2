@@ -12,9 +12,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <SCRIPT src="listing.js"></SCRIPT>
 </head>
 
 <body>
+         <div id="top-alert2" class="alert alert-success" role="alert" style="display:none;">
+        <strong>Success!</strong> - Your Message Regarding This Item Was Sent Successfully
+    </div>    
     <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="background-color:#EFEBE9;">
         <div class="container"><a class="navbar-brand" href="/home" style="color:#00695C;font-size:24px;">Mason Market</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
@@ -27,7 +31,22 @@
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group" style="margin-left:10px;"><label for="search-field"><i class="fa fa-search" style="color:#008975;"></i></label><input class="form-control search-field" type="search" name="search" id="search-field" style="color:rgb(80,94,108);"></div>
-                </form><span class="navbar-text"><a href="/mylistings" class="login" style="color:#00695C;margin-right:5px;">My Account</a></span><a class="btn btn-light action-button" role="button" href="#" style="background-color:#00695C;">Log Out</a></div>
+                    
+                </form>
+                {{#if currentUser}}
+                <span class="navbar-text"><a href="/myaccount" class="login" style="color:#00695C;margin-right:5px;">My Account</a></span><a class="btn btn-light action-button logout" role="button" href="#" style="background-color:#00695C;">Log Out</a>
+                {{else}}
+                    <span class="navbar-text">
+                            <a href="/login" class="login" style="color:#00695C;">
+                                Log In
+                            </a>
+                            </span>
+                    <a class="btn btn-light action-button" role="button" href="/createaccount" style="background-color:#00695C;"> Sign Up
+                    </a>
+
+                {{/if}}
+            </div>
+                
         </div>
     </nav>
 
@@ -36,7 +55,11 @@
             <h1 class="text-center" style="color:#008975;">Send An Email To Seller</h1>
                 <div class="form-group">
                         <textarea style="resize:none" id = "emailDescription" name ="emaildescription" rows="15" cols="50"></textarea>
-                    <button class="btn btn-primary buy-button" type="button" style="background-color:#00BFA5;margin-left:0px;margin-bottom:30px;">Send Email</button>
+   <button class="btn btn-primary buy-button send-email-button" style="background-color:#00BFA5" id="myButton" >Send</button>
+ <!--  <p id="demo"></p>
+   <p class="xyz-title">
+    <a href="#" id="testtest">Title here12213</a>
+</p> -->
                 </div>
         </div>
         <div class="container">
@@ -45,14 +68,13 @@
                     {{#each books}}
                     <div class="intro">
                         <h1 class="text-center" style="color:#008975;">{{title}}</h1>
-                        <p class="text-center"><span class="by">Posted by</span> <a href="#">{{owner}}</a><span class="date">{{createdAt}} </span></p><img class="img-thumbnail img-fluid card-img-top w-100 d-block" style="height:400px;background-image:url({{imagesrc}});background-size:cover;"></div>
+                        <p class="text-center"><span class="by">Posted by</span> <a href="#" id="bookowner">{{owner}}</a><span class="date">{{createdAt}} </span></p><img class="img-thumbnail img-fluid card-img-top w-100 d-block" style="height:400px;background-image:url({{imagesrc}});background-size:cover;"></div>
                     <div class="text">
                         <h2>Description</h2>
-                        <textarea readonly style="border:none;resize:none" name ="description" rows="5" cols="90">{{description}}</textarea>
+                        <textarea readonly style="border:none;resize:none" name ="description" rows="5" cols="70">{{description}}</textarea>
                         <p>Class: {{course}}</p>
                         <p>Price: {{price}} Dollars</p>
                         <p>Condition: {{condition}}</p>
-                        <p>: //blah blah</p>
                     </div>
                     {{/each}}
 
@@ -95,6 +117,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.min.js"></script>
+
 </body>
 
 

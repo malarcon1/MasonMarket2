@@ -90,7 +90,7 @@
     <div></div>
     <div></div>
     <div></div>
-	<!--{{#if books}}-->
+	{{#if books}}
 	    <div class="page-header clearfix">
         <h1 class="text-center" style="color:#008975;font-family:bitter, serif;">Book Results</h1>
 		
@@ -114,7 +114,18 @@
 			{{/each}}
  
     </ul>
-	<!--{{/if}}-->
+	{{else}}
+		<div class="page-header clearfix">
+        <h2 class="text-center" style="color:red;font-family:bitter, serif;">No Results!</h2>
+		
+        <div class="pull-right">
+
+		</div>
+    </div>
+	
+	{{/if}}
+	
+	
     <div class="testimonials-clean"></div>
     <div class="footer-dark" style="background-color:#008975;">
         <footer>

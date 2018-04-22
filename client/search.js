@@ -7,17 +7,20 @@ import {BookContract} from "../contracts/book_contract.js";
 
 if (Meteor.isClient){
 	Template.search.helpers({
+		
 		books: function(){
 			Meteor.subscribe("search", Session.get("searchVal"));
 			
-			//if (Books.find({}).title == "");
-			
-			
+			if (Books.findOne({}) == undefined)
+			{
+				return false;
+			}
 			//if (Session.get("searchVal")) {
 			return Books.find({}); //searchVal
 				
 		},
-			
+		
+
 		firstName: function() {
 				return Meteor.user().emails[0].address;
 		}
