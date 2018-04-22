@@ -11,7 +11,7 @@ Meteor.startup(() => {
 
 });
 
-let keyfile = JSON.parse(fs.readFileSync('/Users/Hamza/Desktop/rootkey.json', 'utf8'));
+let keyfile = JSON.parse(fs.readFileSync('/Users/maryama/Documents/rootkey.json', 'utf8'));
 
 S3.config = { // This is the S3 bucket key that stores our files
     key: keyfile.AWSAccessKeyId,
