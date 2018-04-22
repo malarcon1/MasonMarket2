@@ -30,10 +30,10 @@
                     </li>
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
-
+                    
                 </form>
                 {{#if currentUser}}
-                <span class="navbar-text"><a href="/myaccount" class="login" style="color:#00695C;margin-right:5px;">My Account</a></span><a class="btn btn-light action-button logout" role="button" href="/home" style="background-color:#00695C;">Log Out</a>
+                <span class="navbar-text"><a href="/myaccount" class="login" style="color:#00695C;margin-right:5px;">My Account</a></span><a class="btn btn-light action-button logout" role="button" href="#" style="background-color:#00695C;">Log Out</a>
                 {{else}}
                     <span class="navbar-text">
                             <a href="/login" class="login" style="color:#00695C;margin-right: 5px;">
@@ -50,17 +50,21 @@
     </nav>
 
     <div class="article-clean" style="background-color:#EFEBE9;">
+        {{#if currentUser}}
         <div class="div3" >
             <h1 class="text-center" style="color:#008975;">Send An Email To Seller</h1>
                 <div class="form-group">
                         <textarea style="resize:none" id = "emailDescription" name ="emaildescription" rows="15" cols="50"></textarea>
+        }
    <button class="btn btn-primary buy-button send-email-button" style="background-color:#00BFA5" id="myButton" >Send</button>
+
  <!--  <p id="demo"></p>
    <p class="xyz-title">
     <a href="#" id="testtest">Title here12213</a>
 </p> -->
                 </div>
         </div>
+            {{/if}}
         <div class="container">
             <div class="row" style="margin-bottom:33px;background-color:#EFEBE9;">
                 <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2" style="background-color:#ffffff;border-radius:25px;margin-top:20px;margin-bottom:20px;">

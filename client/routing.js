@@ -17,6 +17,7 @@ Router.route('/listing', function () {
 
 Router.route('/listing/:_id', function () {
 	this.render('listing');
+  
 //console.log(Router.current().params._id);
 });
 
@@ -38,7 +39,9 @@ Router.route('/search', function () {
   this.render('search');
 });
 
-
+Router.route('/searchpage', function () {
+  this.render('searchpage');
+});
 
 /*
 Router.route('/home', function () {

@@ -44,7 +44,7 @@ function displayDate()
 //    console.log(Books.find({_id: Router.current().params._id},{"title":1}));
 //    console.log(document.getElementsByClassName('xyz-title')[0].children[0].href);
 //console.log(document.getElementsByClassName('xyz-title')[0].getElementsByTagName('a')[0].innerHTML);
-//console.log(document.getElementsByTagName('a')[0].href);
+
 var User = Meteor.user().emails[0].address;
 var Owner = document.getElementById('bookowner').innerHTML;
 var contents = document.getElementById("emailDescription").value;
@@ -60,6 +60,7 @@ Meteor.call(
         $('#top-alert2').delay(5000).fadeOut(); 
 console.log(document.getElementById("emailDescription").value);
 document.getElementById('emailDescription').value = "";
+console.log('You should see this in the console if send email worked');
   //  document.getElementById("demo").innerHTML=Date();
 }
 
@@ -72,3 +73,11 @@ window.onload = function() {
 function gotowebpage (){
     //do stuff with value
 }
+
+   Template.listing.events({
+
+      'click #myButton': function() {
+         console.log("The ID is clicked...");
+         displayDate();
+      },
+   });
