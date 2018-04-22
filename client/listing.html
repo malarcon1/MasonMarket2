@@ -24,7 +24,7 @@
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:#008975;">Advanced Search</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/search" style="color:#008975;">Search</a></li>
                     <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:#008975;">Menu</a>
                         <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">About</a><a class="dropdown-item" role="presentation" href="#">GMU</a><a class="dropdown-item" role="presentation" href="#">Help</a></div>
                     </li>
@@ -33,10 +33,10 @@
 
                 </form>
                 {{#if currentUser}}
-                <span class="navbar-text"><a href="/myaccount" class="login" style="color:#00695C;margin-right:5px;">My Account</a></span><a class="btn btn-light action-button logout" role="button" href="#" style="background-color:#00695C;">Log Out</a>
+                <span class="navbar-text"><a href="/myaccount" class="login" style="color:#00695C;margin-right:5px;">My Account</a></span><a class="btn btn-light action-button logout" role="button" href="/home" style="background-color:#00695C;">Log Out</a>
                 {{else}}
                     <span class="navbar-text">
-                            <a href="/login" class="login" style="color:#00695C;">
+                            <a href="/login" class="login" style="color:#00695C;margin-right: 5px;">
                                 Log In
                             </a>
                             </span>
