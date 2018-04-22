@@ -41,7 +41,8 @@ Template.home.helpers({
     },
     nextPageClass: function() {
         return hasMorePages() ? "" : "disabled";
-    }
+    },
+
 });
 
 var hasMorePages = function() {
@@ -59,6 +60,20 @@ Template.home.events({
         event.preventDefault();
         console.log("Test");
         Meteor.logout();
+    },
+    'click .logout': function (event) {
+        event.preventDefault();
+        console.log("Test");
+        Meteor.logout();
+    },
+
+    'search #form-inline mr-auto': function(event){
+        event.preventDefault();
+        Session.set("searchVal", $("#search-field").val());
+
+        var searchtitle = $('[id=search-field]').val();
+        console.log(searchtitle);
+
     }
 });
 
