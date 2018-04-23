@@ -27,3 +27,4 @@ tmeasday:publish-counts
 lepozepo:s3
 session
 email
+momentjs:moment
