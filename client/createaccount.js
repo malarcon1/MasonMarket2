@@ -3,7 +3,7 @@ import './createaccount.html';
 
         var bool = false;
 Template.createaccount.events({
-    'submit form': async function(){
+    'submit form': function(){
         event.preventDefault();
         var email = $('[name=email]').val();
         var password = $('[name=password]').val();
@@ -11,11 +11,13 @@ Template.createaccount.events({
         console.log(email);
         console.log(password);
         console.log(number);
-
+        if(!number){
+          number = "noneprovided";
+        }
  //       console.log(Meteor.user().emails[0].address);
 
-         await Meteor.call('registerUser',email,number,password, function(error){
-    console.log(error);
+        Meteor.call('registerUser',email,number,password, function(error){
+    console.log(error.reason);
 // 	$('#passwordsNoMatchRegister').fadeIn();
     console.log('error');
 // 	$('#passwordsNoMatchRegister').delay(3000).fadeOut();
