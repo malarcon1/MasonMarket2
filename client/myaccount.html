@@ -62,10 +62,14 @@
                             
                             <div class="tab-pane active" role="tabpanel" id="tab-1">
                                 <ul class="thread-list" style="background-color:white;">
-                                    <li class="thread"><span class="time">{{createdAt}}</span><span class="nav-item"><a class="nav-link listing" href="/listing/{{_id}}"> {{title}}</a></span><span class="icon"> <button onclick="deleteBook({{_id}})"><a href="javascript:void(0)" class="subscribe trash" id=?trashbutton><i class="fa fa-trash-o"></i></a></button></span></li>
+                                    <li class="thread"><span class="time">{{createdAt}}</span>
+                                    <span class="nav-item"><a class="nav-link listing" href="/listing/{{_id}}"> {{title}}</a></span>
+                                    <span class="icon"><a href="javascript:void(0)" class="subscribe trash" id="{{_id}}"><i class="fa fa-trash-o"></i></a>
+                                    
+                                    </span>
+                                    </li>
                                 </ul>
                             </div>
-                            
                             <div class="tab-pane" role="tabpanel" id="tab-2"></div>
                             <div class="tab-pane" role="tabpanel" id="tab-3"></div>
                             <div class="tab-pane" role="tabpanel" id="tab-4"></div>

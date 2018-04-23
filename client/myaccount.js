@@ -6,13 +6,9 @@ import {BookContract} from "../contracts/book_contract.js";
 
 
 Template.myaccount.onCreated(function() {
-
     this.subscribe('books');
 });
-/*
-myaccount.getElementById("trashbutton").addEventListener('click',deleteBook() {
-        alert("hello");
-});*/
+
 
 
 Template.myaccount.helpers({
@@ -31,15 +27,13 @@ Template.myaccount.helpers({
     },
     
     deleteBook: function(id){
-        var collection = Books.remove({_id: id});
-        console.log(collection);
+        console.log("DELETING BOOK RN");
+        Books.remove({_id: id});
         console.log(id);
-    },
-    
+    },//*/
     
     
 });
-
 
 Template.myaccount.events({
     'click .logout': function (event) {
@@ -56,13 +50,15 @@ Template.myaccount.events({
         var collection = Books.find({owner: acct});
         console.log(collection);
     },
-    /*
-    'click .trash': function(event){
-        event.preventDefault();
-        console.log("Test");
-        //need to retrieve id of specific book
-        var collection = Books.remove({_id: _id}); //remove book from site
-        console.log(collection);
-    },*/
     
+});
+
+Template.myaccount.events({
+   'click .trash': function() {
+       console.log("The ID is clicked...");
+       var id2 = document.getElementsByClassName("trash");
+       console.log(id2[0].id);
+       var bookID = id2[0].id;
+       Books.remove({_id: bookID});
+   },
 });
