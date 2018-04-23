@@ -18,6 +18,7 @@ export class BookContract {
         this.owner = owner;
         this.condition = condition;
         this.course = course;
-        this.createdAt = new Date();
+        var date = new Date();
+        this.createdAt = moment(date).format('MM.DD.YYYY');
     }
 }
