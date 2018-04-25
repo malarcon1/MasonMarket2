@@ -10,7 +10,12 @@ Router.route('/createaccount', function () {
 Router.route('/login', function () {
   this.render('login');
 });
-
+Router.route('/about', function () {
+    this.render('about');
+});
+Router.route('/help', function () {
+    this.render('help');
+});
 Router.route('/listing', function () {
   this.render('listing');
 });
